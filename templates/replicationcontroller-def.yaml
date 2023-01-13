@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Replicationontroller
+metadata:
+  name: myapp-rc
+  # labels: 
+  #   app: myapp
+  #   type: front-end
+spec:
+  template:
+  
+    metadata:
+      name: myapp-rc
+      # labels: 
+      #   app: myapp
+      #   type: front-end
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx
+        # ports:
+        # - containerPort: 80
+  replicas: 3
+
