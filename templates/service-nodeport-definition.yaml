@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+
+spec:
+  type: NodePort
+  ports:
+  - targetPort: 80  # port on which target app is running
+    port: 80        # only one required (service port)
+    nodePort: 30008 # port on the node, we access webserver on this port (from pod target -> port service -> nodeport node)
+  selector: 
+    # refering to pod-definition, we need to connect the service to specific pod
+    app: myapp
+    type: front-end
+
