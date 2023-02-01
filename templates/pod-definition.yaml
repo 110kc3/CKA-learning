@@ -3,12 +3,12 @@ kind: Pod
 metadata:
   name: myapp-pod
   # namespace: dev # specifing namespace - not required
-  # labels: 
-  #   app: myapp
-  #   type: front-end
+  labels: 
+    app: myapp
+    type: front-end
 spec:
   containers:
   - name: nginx
     image: nginx
-    # ports:
-    # - containerPort: 80
+    ports:
+    - containerPort: 80
