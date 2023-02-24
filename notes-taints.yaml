@@ -1,0 +1,38 @@
+Taints are set on Nodes
+
+#tainting specific node with key
+kubectl taint nodes node-name key=value:taint-effect #taint-effect mentions what happens to the node if it does not tolerate taint
+#tainteffects: NoSchedue | PreferNoSchedule | NoExecute
+
+example:
+kubectl taint nodes node1 app=blue:NoSchedue
+
+
+how to untaint node - easy (add "-" to taint command)
+- kubectl taint nodes controlplane node-role.kubernetes.io/control-plane:NoSchedule-
+
+
+
+Tolerations are set on pods - in definitions
+
+pod-definition.yaml:
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  # namespace: dev # specifing namespace - not required
+  labels: 
+    app: myapp
+    type: front-end
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+    tolerations: 
+    - key: "app"
+      operator:  "Equal"
+      value: "blue"
+      effect: "NoSchedule"
