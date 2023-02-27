@@ -1,0 +1,10 @@
+After paste in open vim sometimes there is not enough indent on text block
+you can check block of text with visual selection
+v
+and give space more or less with 
+SHIFT + < or > 
+
+
+
+Delete 1 line with
+dd
