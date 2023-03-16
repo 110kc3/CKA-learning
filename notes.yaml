@@ -75,3 +75,11 @@ kubectl run nginx --image=nginx --dry-run=client -o yaml
 save the YAML definition to a file and modify
 
 kubectl create deployment nginx --image=nginx --dry-run=client -o yaml > nginx-deployment.yaml
+
+
+
+
+TODO:
+learn about static pods, their configuration etc 
+https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/learn/lecture/14863335#overview
+
